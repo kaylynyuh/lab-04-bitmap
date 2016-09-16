@@ -1,8 +1,13 @@
 'use strict';
 
-const fs = require('fs');
+const bitmapFileHelper = require('./lib/bitmap-file-helper.js');
 
-fs.readFile(`${__dirname}/../assets/finger-print.bmp`, (err, data) => {
-  if(err) throw err;
-  console.log(data);
+
+bitmapFileHelper.readFile(function(err, bitmap) {
+  console.log(bitmap);
+
+  // do transform
+  bitmapFileHelper.writeFile(bitmap, function(err, data){
+
+  })
 });
