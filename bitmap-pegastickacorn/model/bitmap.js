@@ -8,7 +8,7 @@ const Bitmap = module.exports = function (buf) {
 };
 
 Bitmap.prototype.changeColor = function() {
-  for(var i = 0; i < this.colorArray.length; i++) {
-    console.log(this.colorArray.readIntLE(i, 1));
-  }
+  for(var i = 0; i < this.colorArray.length; i+= 4) {
+    var
+  };
 };

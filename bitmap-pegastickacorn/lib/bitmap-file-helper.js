@@ -19,3 +19,4 @@ exports.writeFile = function(bitmap, callback) {
     callback(null, data);
   });
 };
+ 
