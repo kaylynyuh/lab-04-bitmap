@@ -1,31 +1,25 @@
 'use strict';
+//sets up events
+const Event = require('events');
+const ee = new Event;
+//adds file read and write
+const helper = require('./lib/bitmap-file-helper.js');
 
-const fs = require('fs');
-const buf = new Buffer(fs.readFileSync(`${__dirname}/assets/finger-print.bmp`), 'utf-8');
+//on has 2 parameters:
+//name of event listening for and function
+ee.on('read file', function(){
+  helper.readBuffer();
+});
 
-//read 32 bit data from buffer, offest 2
-//gives file size in bytes- 1365240
-//console.log(buf.readUInt32LE(2));
+ee.on('write to file', function() {
+  helper.writeBuffer();
+});
 
-//location of the start of pixel array- 1078
-var pixArrayOffset = buf.readUInt32LE(10);
+ee.on('detect error', function(){
+  console.log('Error');
+});
 
-//color array
-var colorArray = buf.slice(54, pixArrayOffset);
-
-for (var i = 0; i <= colorArray.length; i+=4) {
-  //every 4 bytes, change the colorArray
-  colorArray.slice(i, i + 4);
-  
-  //put them back into the array
-}
-console.log(colorArray);
-
-
-
-//TESTS
-//1. should get a correct bitmap
-//2. should return correct array of values
-//3. should find the correct location of the pixel array
-//4. should return the correct array of colors
-//5. should return correct file size
+//Emit fires the events
+ee.emit('read file');
+ee.emit('change colors');
+ee.emit('write to file');
