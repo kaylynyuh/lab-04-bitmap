@@ -6,7 +6,7 @@ const Bitmap = require('../model/bitmap');
 module.exports = exports = {};
 
 exports.readFile = function(callback) {
-  fs.readFile(`${__dirname}/../assets/bitmap.bmp`, function(err, data) {
+  fs.readFile(`${__dirname}/../assets/finger-print.bmp`, function(err, data) {
     if(err) return callback (err);
     var bitmap = new Bitmap(data);
     callback(null, bitmap);
@@ -19,4 +19,3 @@ exports.writeFile = function(bitmap, callback) {
     callback(null, data);
   });
 };
- 
