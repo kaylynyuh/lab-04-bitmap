@@ -1,8 +1,22 @@
 'use strict';
 
-const fs = require('fs');
+const bitmapFileHelper = require('./lib/bitmap-file-helper');
 
-fs.readFile(`${__dirname}/../assets/finger-print.bmp`, (err, data) => {
-  if(err) throw err;
-  console.log(data);
+
+bitmapFileHelper.readFile('bitmap', function(err, bitmap) {
+  bitmap.invertColor();
+  bitmapFileHelper.writeFile('invert', 'bitmap', bitmap, function(err, data){
+  });
+});
+
+bitmapFileHelper.readFile('bitmap', function(err, bitmap) {
+  bitmap.greyScaleColor();
+  bitmapFileHelper.writeFile('colorscale', 'bitmap', bitmap, function(err, data){
+  });
+});
+
+bitmapFileHelper.readFile('bitmap', function(err, bitmap) {
+  bitmap.scaleColor();
+  bitmapFileHelper.writeFile('greyscale', 'bitmap', bitmap, function(err, data){
+  });
 });
