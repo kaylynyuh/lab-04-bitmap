@@ -28,7 +28,7 @@ Bitmap.prototype.greyScaleColor = function() {
   for(var i = 0; i < this.colorArray.length; i+=4) {
     slice = this.colorArray.slice(i, i + 4);
     color = new Color(slice);
-    color.grayScale();
+    color.greyScale();
   }
   return this;
   //returns altered buffer

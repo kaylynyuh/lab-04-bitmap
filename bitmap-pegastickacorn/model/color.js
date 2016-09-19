@@ -26,7 +26,7 @@ Color.prototype.invert = function () {
 };
 
 //Greyscale
-Color.prototype.grayScale = function() {
+Color.prototype.greyScale = function() {
   this.average = (this.red + this.blue + this.green)/3;
   this.red = this.average;
   this.blue = this.average;
