@@ -3,14 +3,20 @@
 const bitmapFileHelper = require('./lib/bitmap-file-helper');
 
 
-bitmapFileHelper.readFile('finger-print', function(err, bitmap) {
-  // console.log('hello!');
-  // bitmap.changeColor();
-  // bitmap.colorLocator();
-  // do transform
-  bitmapFileHelper.writeFile('finger-print', bitmap, function(err, data){
-    // console.log(bitmap);
+bitmapFileHelper.readFile('bitmap', function(err, bitmap) {
+  bitmap.invertColor();
+  bitmapFileHelper.writeFile('invert', 'bitmap', bitmap, function(err, data){
   });
 });
 
-// bitmap.changeColor();
+bitmapFileHelper.readFile('bitmap', function(err, bitmap) {
+  bitmap.greyScaleColor();
+  bitmapFileHelper.writeFile('colorscale', 'bitmap', bitmap, function(err, data){
+  });
+});
+
+bitmapFileHelper.readFile('bitmap', function(err, bitmap) {
+  bitmap.scaleColor();
+  bitmapFileHelper.writeFile('greyscale', 'bitmap', bitmap, function(err, data){
+  });
+});

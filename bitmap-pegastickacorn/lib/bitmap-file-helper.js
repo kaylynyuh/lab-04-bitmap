@@ -13,8 +13,8 @@ exports.readFile = function(bitmap, callback) {
   });
 };
 
-exports.writeFile = function(bitmapName, bitmap, callback) {
-  fs.writeFile(`${__dirname}/../assets/output-${bitmapName}.bmp`, bitmap.buffer,  function(err, data) {
+exports.writeFile = function(outputType, bitmapName, bitmap, callback) {
+  fs.writeFile(`${__dirname}/../assets/output-${outputType}-${bitmapName}.bmp`, bitmap.buffer,  function(err, data) {
     if(err) return callback (err);
     callback(null, data);
   });
