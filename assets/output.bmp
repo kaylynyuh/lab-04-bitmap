@@ -1,0 +1,11 @@
+function (err){
+  if ( err ) { throw err; }
+  console.log('File written successfully');
+  //Reads in original file
+  fs.readFile('../assets/bitmap.bmp', function(err, data){
+    if ( err ){ throw err;}
+    console.log('Read in file');
+    var bitmap = new Bitmap(data);
+    return bitmap.changeColor();
+  });
+}
