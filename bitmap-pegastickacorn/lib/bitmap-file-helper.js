@@ -3,7 +3,6 @@
 const fs = require('fs');
 const Bitmap = require('../model/bitmap');
 
-module.exports = exports = {};
 
 exports.readFile = function(bitmap, callback) {
   fs.readFile(`${__dirname}/../assets/${bitmap}.bmp`, function(err, data) {
@@ -14,8 +13,8 @@ exports.readFile = function(bitmap, callback) {
 };
 
 exports.writeFile = function(outputType, bitmapName, bitmap, callback) {
-  fs.writeFile(`${__dirname}/../assets/output-${outputType}-${bitmapName}.bmp`, bitmap.buffer,  function(err, data) {
+  fs.writeFile(`${__dirname}/../assets/output-${outputType}-${bitmapName}.bmp`, bitmap.buffer,  function(err) {
     if(err) return callback (err);
-    callback(null, data);
+    return 'successfully transformed bitmap';
   });
 };

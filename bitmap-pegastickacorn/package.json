@@ -18,5 +18,9 @@
     "gulp-eslint": "^3.0.1",
     "gulp-mocha": "^3.0.1",
     "mocha": "^3.0.2"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "bluebird": "^3.4.6"
   }
 }

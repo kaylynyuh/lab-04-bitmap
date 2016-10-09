@@ -4,24 +4,24 @@
 var Color = module.exports = function(buffer) {
   this.colorBuf = buffer;
   this.red = buffer.readUInt8(2);
-  this.green = buffer.readUInt8(0);
-  this.blue = buffer.readUInt8(1);
+  this.green = buffer.readUInt8(1);
+  this.blue = buffer.readUInt8(0);
   this.alpha = buffer.readUInt8(3);
 
 };
 
 Color.prototype.write = function(){
   this.colorBuf.writeUInt8(this.red, 2);
-  this.colorBuf.writeUInt8(this.green, 0);
+  this.colorBuf.writeUInt8(this.green, 1);
+  this.colorBuf.writeUInt8(this.blue, 0);
   this.colorBuf.writeUInt8(this.alpha, 3);
-  this.colorBuf.writeUInt8(this.blue, 1);
 };
 
 //Inverts colors
 Color.prototype.invert = function () {
-  255 - this.red;
-  255 - this.blue;
-  255 - this.green;
+  this.red = 255 - this.red;
+  this.blue = 255 - this.blue;
+  this.green = 255 - this.green;
   this.write(); //overwrites the buffer with inverted colors
 };
 
@@ -36,7 +36,7 @@ Color.prototype.greyScale = function() {
 
 //Scale colors
 Color.prototype.scale = function() {
-  this.red *= .03;
+  this.red *= .05;
   this.green = this.green;
   this.blue = this.blue;
   this.write();

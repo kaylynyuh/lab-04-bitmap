@@ -31,9 +31,6 @@ Bitmap.prototype.greyScaleColor = function() {
     color.greyScale();
   }
   return this;
-  //returns altered buffer
-  //each slice created is 4 separate numbers that are 8 bits(1 byte) each
-  //each color is one byte- so readUInt8 is used(reads 1 byte offset (n))
 };
 
 Bitmap.prototype.scaleColor = function() {
@@ -44,7 +41,4 @@ Bitmap.prototype.scaleColor = function() {
     color.scale();
   }
   return this;
-  //returns altered buffer
-  //each slice created is 4 separate numbers that are 8 bits(1 byte) each
-  //each color is one byte- so readUInt8 is used(reads 1 byte offset (n))
 };
